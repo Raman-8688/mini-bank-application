@@ -1,0 +1,16 @@
+<div class="container mt-5">
+    <div class="card shadow-sm border-0 mx-auto" style="max-width: 500px;">
+        <div class="card-body text-center p-5">
+            <h3 class="mb-4">Create Your First Account</h3>
+            <p class="text-muted mb-4">Click below to automatically generate a unique Account Number and start banking.
+            </p>
+
+            <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
+            <button class="btn btn-primary btn-lg" (click)="createAccount()" [disabled]="loading">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+                Create Bank Account
+            </button>
+        </div>
+    </div>
+</div>

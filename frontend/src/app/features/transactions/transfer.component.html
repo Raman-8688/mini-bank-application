@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white border-bottom-0 pt-4 pb-0">
+            <h3 class="mb-0">Transfer Money</h3>
+        </div>
+        <div class="card-body">
+            <div *ngIf="success" class="alert alert-success">{{success}}</div>
+            <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
+            <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label class="form-label">From Account</label>
+                    <select class="form-select" formControlName="fromAccount">
+                        <option value="">Select Account</option>
+                        <option *ngFor="let acc of accounts" [value]="acc.accountNumber">{{acc.accountNumber}} -
+                            ${{acc.balance}}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">To Account Number</label>
+                    <input type="text" class="form-control" formControlName="toAccount"
+                        placeholder="Destination Account Number">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Amount</label>
+                    <input type="number" class="form-control" formControlName="amount" min="0.01" step="0.01">
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="loading || transferForm.invalid">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                    Transfer
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

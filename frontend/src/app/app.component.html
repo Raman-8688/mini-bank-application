@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4" *ngIf="authService.currentUserValue">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/dashboard">Mini Bank</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/deposit" routerLinkActive="active">Deposit</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/withdraw" routerLinkActive="active">Withdraw</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/transfer" routerLinkActive="active">Transfer</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/history" routerLinkActive="active">History</a></li>
+      </ul>
+      <span class="navbar-text me-3 text-light">
+        {{authService.currentUserValue.username}}
+      </span>
+      <button class="btn btn-outline-light btn-sm" (click)="authService.logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
