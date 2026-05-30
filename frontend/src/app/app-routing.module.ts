@@ -9,9 +9,11 @@ import { WithdrawComponent } from 'src/app/features/transactions/withdraw.compon
 import { HistoryComponent } from 'src/app/features/transactions/history.component';
 import { CreateAccountComponent } from 'src/app/features/account/create-account.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { RegisterComponent } from './features/auth/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'create-account', component: CreateAccountComponent, canActivate: [AuthGuard] },
   { path: 'deposit', component: DepositComponent, canActivate: [AuthGuard] },

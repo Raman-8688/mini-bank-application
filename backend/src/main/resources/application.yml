@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/bank_app_anti
+    url: jdbc:postgresql://localhost:5432/const_db_1
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver

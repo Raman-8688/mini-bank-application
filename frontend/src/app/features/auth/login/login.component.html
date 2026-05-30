@@ -1,26 +1,61 @@
 <div class="login-container">
   <div class="login-card">
-    <h2 class="text-center mb-4">Mini Bank Login</h2>
+    <h2 class="text-center mb-4">Welcome Back</h2>
+    <p class="text-center text-muted mb-4">Sign in to your account</p>
+
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+        <input
+          type="text"
+          formControlName="username"
+          class="form-control"
+          placeholder="Enter your username"
+          [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+        />
         <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
-          <div *ngIf="f['username'].errors['required']">Username is required</div>
+          <div *ngIf="f['username'].errors['required']">
+            Username is required
+          </div>
         </div>
       </div>
+
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          placeholder="Enter your password"
+          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+        />
         <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-          <div *ngIf="f['password'].errors['required']">Password is required</div>
+          <div *ngIf="f['password'].errors['required']">
+            Password is required
+          </div>
         </div>
       </div>
-      <button [disabled]="loading" class="btn btn-primary w-100 mt-3">
-        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
-        Login
+
+      <button [disabled]="loading" class="btn-login w-100">
+        <span
+          *ngIf="loading"
+          class="spinner-border spinner-border-sm me-1"
+        ></span>
+        <span *ngIf="!loading">Sign In</span>
+        <span *ngIf="loading">Signing In...</span>
       </button>
-      <div *ngIf="error" class="alert alert-danger mt-3">{{error}}</div>
+
+      <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
     </form>
+
+    <div class="signup-section">
+      <hr class="divider" />
+      <div class="signup-prompt">
+        <span class="signup-text">New to Mini Bank?</span>
+        <button type="button" class="btn-signup" (click)="goToRegister()">
+          Create an Account →
+        </button>
+      </div>
+    </div>
   </div>
 </div>

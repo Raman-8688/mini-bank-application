@@ -14,6 +14,7 @@ import { HistoryComponent } from 'src/app/features/transactions/history.componen
 import { CreateAccountComponent } from 'src/app/features/account/create-account.component';
 
 import { JwtInterceptor } from 'src/app/core/interceptors/jwt.interceptor';
+import { RegisterComponent } from './features/auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { JwtInterceptor } from 'src/app/core/interceptors/jwt.interceptor';
     DepositComponent,
     WithdrawComponent,
     HistoryComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
